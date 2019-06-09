@@ -54,6 +54,9 @@
             <button class="button button--next-wrapped" data-selector=".cell1">Reset</button>
         </div>
 
+        <div class="map-wrapper">
+            <div id="map"></div>
+        </div>
 
 
 
@@ -67,6 +70,10 @@
         <script src="./vendor/flickity.pkgd.min.js"></script>
         <script src="./node_modules/mustache/mustache.js"></script>
         <script src="./js/script.js"></script>
+
+        <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTx47SO197J9xezxl8i9-rVpG6VVQGeFs&callback=initMap">
+        </script>
 
         <script id="templateList" type="x-tmpl-mustache">
             <div class="container">
