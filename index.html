@@ -12,103 +12,60 @@
 </head>
 
 <body>
-    <div class="carousel-wrapper">
-        <p>
-            View:
-            <a href="#carousel-cell1">Slide 1</a>,
-            <a href="#carousel-cell2">Slide 2</a>,
-            <a href="#carousel-cell3">Slide 3</a>,
-            <a href="#carousel-cell4">Slide 4</a>,
-            <a href="#carousel-cell5">Slide 5</a>
-        </p>
-        <div class="carousel" data-flickity='{ "hash": true }'>
-            <div class="carousel-cell" id="carousel-cell1">
-                <div id="results">
 
-                </div>
-            </div>
-            <div class="carousel-cell" id="carousel-cell2">
-                <div id="results">
+    <div class="carousel" id="results">
+    </div>
+    <div class="progress-bar"></div>
 
-                </div>
-            </div>
-            <div class="carousel-cell" id="carousel-cell3">
-                <div id="results">
-
-                </div>
-            </div>
-            <div class=" carousel-cell" id="carousel-cell4">
-                <div id="results">
-
-                </div>
-            </div>
-            <div class="carousel-cell" id="carousel-cell5">
-                <div id="results">
-
-                </div>
-            </div>
-        </div>
-        <div class="progress-bar">
-        </div>
-        <div class="button-group">
-            <button class="button button--next-wrapped" data-selector=".cell1">Reset</button>
-        </div>
+    <div class="button-group">
+        <button class="button button--next-wrapped" data-selector=".cell1">Reset</button>
+    </div>
 
 
 
+    <script id="template" type="x-tmpl-mustache">
+        <div class="carousel-cell">
+                        <div class="container" style="background-image:url( {{image}} )" >
+                            <h2> {{title}} </h2>
+                            {{{description}}}
+                        </div>
+                    </div>
+                    </script>
 
+    <script>
+        var productsData = [{
+                image: 'http://bi.gazeta.pl/im/2/10414/z10414152IH,Bora-Bora-Polinezja-Francuska--Kierunek-znakomity-.jpg',
+                title: 'Bora Bora',
+                description: ' <p>Beautiful Island</p> '
 
+            },
+            {
+                image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Caldeir%C3%A3o_do_Corvo_Azores.jpg/1000px-Caldeir%C3%A3o_do_Corvo_Azores.jpg',
+                title: 'Corvo Anzores',
+                description: ' <p>Beautiful Place</p> '
+            },
+            {
+                image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Pieniny_-_g%C3%B3rskie_polany.jpg/700px-Pieniny_-_g%C3%B3rskie_polany.jpg',
+                title: 'Pieniny',
+                description: ' <p>Beautiful Place</p> '
+            },
+            {
+                image: 'http://www.inspirki.pl/photos/120114/large/4f10b9cad364c.jpg',
+                title: 'Moheru',
+                description: ' <p>Beautiful Place</p> '
+            },
+            {
+                image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Greenland_scenery.jpg/600px-Greenland_scenery.jpg',
+                title: 'Greenland',
+                description: ' <p>Beautiful Place</p> '
+            }
+        ]
+    </script>
 
-
-
-
-
-        <script src="./vendor/hash.js"></script>
-        <script src="./vendor/flickity.pkgd.min.js"></script>
-        <script src="./node_modules/mustache/mustache.js"></script>
-        <script src="./js/script.js"></script>
-
-        <script id="templateList" type="x-tmpl-mustache">
-            <div class="container">
-                {{{products}}}
-            </div>
-                </script>
-
-
-        <script id="template" type="x-tmpl-mustache">
-            <h2> {{title}} </h2>
-                <div>{{description}}</div>
-            </script>
-
-        <script>
-            var productsData = [{
-                    image: 'http://via.placeholder.com/400x200',
-                    title: 'Lorem ipsum',
-                    description: ' "<p>Lorem ipsum.</p> <img src="http://via.placeholder.com/400x200" alt="Photo placeholder"> <p>Dolor sit.</p>" '
-
-                },
-                {
-                    image: 'http://via.placeholder.com/400x200',
-                    title: 'Lorem ipsum',
-                    description: ' "<p>Lorem ipsum.</p> <img src="http://via.placeholder.com/400x200" alt="Photo placeholder"> <p>Dolor sit.</p>" '
-                },
-                {
-                    image: 'http://via.placeholder.com/400x200',
-                    title: 'Lorem ipsum',
-                    description: ' "<p>Lorem ipsum.</p> <img src="http://via.placeholder.com/400x200" alt="Photo placeholder"> <p>Dolor sit.</p>" '
-                },
-                {
-                    image: 'http://via.placeholder.com/400x200',
-                    title: 'Lorem ipsum',
-                    description: ' "<p>Lorem ipsum.</p> <img src="http://via.placeholder.com/400x200" alt="Photo placeholder"> <p>Dolor sit.</p>" '
-                },
-                {
-                    image: 'http://via.placeholder.com/400x200',
-                    title: 'Lorem ipsum',
-                    description: ' "<p>Lorem ipsum.</p> <img src="http://via.placeholder.com/400x200" alt="Photo placeholder"> <p>Dolor sit.</p>" '
-                }
-            ]
-        </script>
+    <script src="./vendor/hash.js"></script>
+    <script src="./vendor/flickity.pkgd.min.js"></script>
+    <script src="./node_modules/mustache/mustache.js"></script>
+    <script src="./js/script.js"></script>
 </body>
 
 </html>

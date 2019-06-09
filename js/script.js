@@ -1,3 +1,22 @@
+var template = document.getElementById('template').innerHTML;
+
+Mustache.parse(template);
+
+var listItems = '';
+
+for (var i = 0; i < productsData.length; i++) {
+    listItems += Mustache.render(template, productsData[i]);
+}
+
+var results = document.getElementById('results');
+
+
+results.insertAdjacentHTML('beforeend', listItems);
+
+
+
+
+
 var elem = document.querySelector('.main-carousel');
 var flkty = new Flickity(elem, {
     cellAlign: 'left',
@@ -17,6 +36,7 @@ flkty.on('scroll', function (progress) {
 
 
 
+
 var buttonGroup = document.querySelector('.button-group');
 var buttons = buttonGroup.querySelectorAll('.button');
 buttons = fizzyUIUtils.makeArray(buttons);
@@ -29,22 +49,3 @@ buttonGroup.addEventListener('click', function (event) {
     var index = buttons.indexOf(event.target);
     flkty.select(index);
 });
-
-
-var templateContainer = document.getElementById('templateList').innerHTML;
-var template = document.getElementById('template').innerHTML;
-
-Mustache.parse(template);
-
-var listItems = '';
-
-for (var i = 0; i < productsData.length; i++) {
-    listItems += Mustache.render(template, productsData[i]);
-}
-
-var fullSlaid = Mustache.render(templateContainer, {
-    products: listItems
-});
-
-
-results.insertAdjacentHTML('beforeend', fullSlaid);
