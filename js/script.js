@@ -1,3 +1,23 @@
+// Mustache
+
+
+var template = document.getElementById('template').innerHTML;
+
+Mustache.parse(template);
+
+var listItems = '';
+
+for (var i = 0; i < productsData.length; i++) {
+    listItems += Mustache.render(template, productsData[i]);
+}
+
+var results = document.getElementById('results');
+
+
+results.insertAdjacentHTML('beforeend', listItems);
+
+// Carousel
+
 var elem = document.querySelector('.main-carousel');
 var flkty = new Flickity(elem, {
     cellAlign: 'left',
@@ -31,45 +51,28 @@ buttonGroup.addEventListener('click', function (event) {
 });
 
 
-var templateContainer = document.getElementById('templateList').innerHTML;
-var template = document.getElementById('template').innerHTML;
-
-Mustache.parse(template);
-
-var listItems = '';
-
-for (var i = 0; i < productsData.length; i++) {
-    listItems += Mustache.render(template, productsData[i]);
-}
-
-var fullSlaid = Mustache.render(templateContainer, {
-    products: listItems
-});
-
-
-results.insertAdjacentHTML('beforeend', fullSlaid);
-
-
 
 
 // GOOGLE MAP
 
 
-function initMap() {
-    // The location of Uluru
-    var uluru = {
-        lat: -25.344,
-        lng: 131.036
-    };
-    // The map, centered at Uluru
+window.initMap = function () {
+
+    // The map, centered at first slide
     var map = new google.maps.Map(
         document.getElementById('map'), {
-            zoom: 4,
-            center: uluru
+            zoom: 8,
+            center: productsData[0].coords
         });
+
     // The marker, positioned at Uluru
-    var marker = new google.maps.Marker({
-        position: uluru,
-        map: map
-    });
+    var marker;
+
+    for (var i = 0; i < productsData.length; i++) {
+        marker = new google.maps.Marker({
+            position: productsData[i].coords,
+            map: map
+        })
+    }
+
 }

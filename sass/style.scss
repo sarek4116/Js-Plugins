@@ -44,6 +44,9 @@ p {
 
 .map-wrapper {
     margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 
     #map {
         height: 500px;
