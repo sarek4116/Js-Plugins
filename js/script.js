@@ -29,3 +29,22 @@ buttonGroup.addEventListener('click', function (event) {
     var index = buttons.indexOf(event.target);
     flkty.select(index);
 });
+
+
+var templateContainer = document.getElementById('templateList').innerHTML;
+var template = document.getElementById('template').innerHTML;
+
+Mustache.parse(template);
+
+var listItems = '';
+
+for (var i = 0; i < productsData.length; i++) {
+    listItems += Mustache.render(template, productsData[i]);
+}
+
+var fullSlaid = Mustache.render(templateContainer, {
+    products: listItems
+});
+
+
+results.insertAdjacentHTML('beforeend', fullSlaid);
