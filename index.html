@@ -21,6 +21,9 @@
         <button class="button button--next-wrapped" data-selector=".cell1">Reset</button>
     </div>
 
+    <div class="map-wrapper">
+        <div id="map"></div>
+    </div>
 
 
     <script id="template" type="x-tmpl-mustache">
@@ -36,36 +39,61 @@
         var productsData = [{
                 image: 'http://bi.gazeta.pl/im/2/10414/z10414152IH,Bora-Bora-Polinezja-Francuska--Kierunek-znakomity-.jpg',
                 title: 'Bora Bora',
-                description: ' <p>Beautiful Island</p> '
-
+                description: ' <p>Beautiful Island</p> ',
+                coords: {
+                    lat: -16.498488,
+                    lng: -151.743378
+                }
             },
             {
                 image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Caldeir%C3%A3o_do_Corvo_Azores.jpg/1000px-Caldeir%C3%A3o_do_Corvo_Azores.jpg',
                 title: 'Corvo Anzores',
-                description: ' <p>Beautiful Place</p> '
+                description: ' <p>Beautiful Place</p> ',
+                coords: {
+                    lat: 39.672388,
+                    lng: -31.114799
+                }
             },
             {
                 image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Pieniny_-_g%C3%B3rskie_polany.jpg/700px-Pieniny_-_g%C3%B3rskie_polany.jpg',
                 title: 'Pieniny',
-                description: ' <p>Beautiful Place</p> '
+                description: ' <p>Beautiful Place</p> ',
+                coords: {
+                    lat: 49.415605,
+                    lng: 20.400325
+                }
             },
             {
                 image: 'http://www.inspirki.pl/photos/120114/large/4f10b9cad364c.jpg',
                 title: 'Moheru',
-                description: ' <p>Beautiful Place</p> '
+                description: ' <p>Beautiful Place</p> ',
+                coords: {
+                    lat: 52.971663,
+                    lng: -9.426898
+                }
             },
             {
                 image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Greenland_scenery.jpg/600px-Greenland_scenery.jpg',
                 title: 'Greenland',
-                description: ' <p>Beautiful Place</p> '
+                description: ' <p>Beautiful Place</p> ',
+                coords: {
+                    lat: 71.308910,
+                    lng: -43.367888
+                }
             }
         ]
     </script>
+
 
     <script src="./vendor/hash.js"></script>
     <script src="./vendor/flickity.pkgd.min.js"></script>
     <script src="./vendor/mustache.js"></script>
     <script src="./js/script.js"></script>
+
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTx47SO197J9xezxl8i9-rVpG6VVQGeFs&callback=initMap">
+    </script>
+
 </body>
 
 </html>

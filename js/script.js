@@ -49,3 +49,41 @@ buttonGroup.addEventListener('click', function (event) {
     var index = buttons.indexOf(event.target);
     flkty.select(index);
 });
+
+
+// GOOGLE MAP
+
+
+window.initMap = function () {
+
+    // The map, centered at first slide
+    var map = new google.maps.Map(
+        document.getElementById('map'), {
+            zoom: 8,
+            center: productsData[0].coords
+        });
+
+    // The marker, positioned at Uluru
+
+
+
+    for (var i = 0; i < productsData.length; i++) {
+        var marker = new google.maps.Marker({
+            position: productsData[i].coords,
+            map: map
+        })
+
+        marker.addListener('click', function () {
+            var index = productsData.indexOf(event.target);
+            flkty.select(index);
+        })
+
+        flkty.on('change', function (index) {
+            map.setCenter(productsData[index].coords)
+            map.setZoom(10);
+        });
+    }
+
+
+
+}
