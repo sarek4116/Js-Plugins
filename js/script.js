@@ -70,20 +70,18 @@ window.initMap = function () {
     for (var i = 0; i < productsData.length; i++) {
         var marker = new google.maps.Marker({
             position: productsData[i].coords,
-            map: map
+            map: map,
+            slide: i
         })
-
         marker.addListener('click', function () {
-            var index = productsData.indexOf(event.target);
-            flkty.select(index);
+            flkty.selectCell(this.slide)
+            console.log(this);
         })
 
-        flkty.on('change', function (index) {
-            map.setCenter(productsData[index].coords)
-            map.setZoom(10);
-        });
     }
 
-
-
+    flkty.on('change', function (index) {
+        map.setCenter(productsData[index].coords)
+        map.setZoom(10);
+    });
 }
